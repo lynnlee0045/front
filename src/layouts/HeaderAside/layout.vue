@@ -16,10 +16,10 @@
         <div class="toggle-aside-btn" @click="handleToggleAside">
           <d2-icon name="bars"/>
         </div>
-      
         <!-- 顶栏右侧 -->
         <div class="d2-header-right">
           <d2-menu-header/>
+          <d2-header-user/>
         </div>
         <!-- <div class="d2-header-right">
           <d2-header-help/>

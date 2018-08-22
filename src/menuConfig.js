@@ -37,6 +37,10 @@ const asideMenuConfig = [
 const headerMenuConfig = [
   {
     name: '首页',
+    path: '/'
+  },
+  {
+    name: '项目信息',
     icon: 'flask',
     children: [
       {
@@ -57,7 +61,7 @@ const headerMenuConfig = [
     ]
   },
   {
-    name: '演示页面',
+    name: '系统管理',
     icon: 'folder-o',
     children: [
       {
