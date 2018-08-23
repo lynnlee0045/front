@@ -36,7 +36,11 @@ const asideMenuConfig = [
 // D2Admin 会自动添加不重复 id 生成菜单，并在点击时提示这是一个临时菜单
 const headerMenuConfig = [
   {
-    name: '空菜单',
+    name: '首页',
+    path: '/'
+  },
+  {
+    name: '项目信息',
     icon: 'flask',
     children: [
       {
@@ -57,7 +61,7 @@ const headerMenuConfig = [
     ]
   },
   {
-    name: '演示页面',
+    name: '系统管理',
     icon: 'folder-o',
     children: [
       {
