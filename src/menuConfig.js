@@ -15,7 +15,7 @@ import utilIce from './libs/util-ice'
 
 const asideMenuConfig = [
   {
-    name: '演示页面',
+    name: '运维一张图',
     icon: 'folder-o',
     children: [
       {
@@ -41,38 +41,11 @@ const headerMenuConfig = [
   },
   {
     name: '项目信息',
-    icon: 'flask',
-    children: [
-      {
-        name: 'menu 1',
-        children: [
-          {
-            name: 'menu 1-1',
-            children: [
-              { name: 'menu 1-1-1' },
-              { name: 'menu 1-1-2' }
-            ]
-          },
-          { name: 'menu 1-2' }
-        ]
-      },
-      { name: 'menu 2' },
-      { name: 'menu 3' }
-    ]
+    icon: 'flask'
   },
   {
     name: '系统管理',
-    icon: 'folder-o',
-    children: [
-      {
-        name: '演示 1',
-        path: '/demo1/'
-      },
-      {
-        name: '演示 2',
-        path: '/demo2/'
-      }
-    ]
+    icon: 'folder-o'
   }
 ]
 
