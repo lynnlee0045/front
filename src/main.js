@@ -7,6 +7,7 @@ import '@/assets/svg-icons'
 import '@/components'
 import '@/plugin/axios'
 import '@/mock/register'
+import echarts from 'echarts'
 import util from '@/libs/util.js'
 import store from '@/store/index'
 import pluginOpen from '@/plugin/open'
@@ -24,6 +25,7 @@ Vue.config.productionTip = false
 
 Vue.prototype.$env = process.env.NODE_ENV
 Vue.prototype.$baseUrl = process.env.BASE_URL
+Vue.prototype.$echarts = echarts
 
 new Vue({
   router,

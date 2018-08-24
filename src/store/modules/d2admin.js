@@ -6,6 +6,7 @@ import screenfull from 'screenfull'
 import util from '@/libs/util.js'
 import db from '@/libs/db.js'
 import themeList from '@/assets/style/theme/list.js'
+import VueJwtDecode from 'vue-jwt-decode'
 
 const pageOpenedDefult = {
   name: 'index',
@@ -97,9 +98,11 @@ export default {
           } else {
             util.cookies.set('uuid', res.token)
             util.cookies.set('token', res.token)
+            // 获取vuex 用户信息
+            const payload = VueJwtDecode.decode(res.token)
             // 设置 vuex 用户信息
             commit('d2adminUserInfoSet', {
-              name: res.status
+              name: payload.user
             })
             // 用户登陆后从数据库加载一系列的设置
             commit('d2adminLoginSuccessLoad')
