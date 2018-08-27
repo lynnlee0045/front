@@ -1,6 +1,8 @@
 <template>
   <d2-container >
-    <div id='mapChart' style="height: 400px; width: 80%" >
+    <div id='mapChart' style="height: 400px; width: 80%;display:inline-block" >
+    </div>
+    <div id='static' style=" background-color: black; height: 400px; width: 20%;display:inline-block" >
     </div>
   </d2-container>
 </template>

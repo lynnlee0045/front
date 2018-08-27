@@ -79,7 +79,7 @@ export default {
       // 开始请求登录接口
       vm.$axios({
         method: 'post',
-        url: '/api/login',
+        url: 'http://65.49.199.124:8080/api/login',
         data: {
           username,
           password
