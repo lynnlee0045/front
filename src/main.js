@@ -18,14 +18,14 @@ import router from './router'
 import { menuHeader, menuAside } from './menuConfig'
 import { frameInRoutes } from './routerConfig'
 
-Vue.use(ElementUI)
-Vue.use(pluginOpen)
+Vue.use(ElementUI);
+Vue.use(pluginOpen);
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
-Vue.prototype.$env = process.env.NODE_ENV
-Vue.prototype.$baseUrl = process.env.BASE_URL
-Vue.prototype.$echarts = echarts
+Vue.prototype.$env = process.env.NODE_ENV;
+Vue.prototype.$baseUrl = process.env.BASE_URL;
+Vue.prototype.$echarts = echarts;
 
 new Vue({
   router,
@@ -33,19 +33,19 @@ new Vue({
   render: h => h(App),
   created () {
     // 处理路由 得到每一级的路由设置
-    this.getAllPageFromRoutes()
+    this.getAllPageFromRoutes();
     // 设置顶栏菜单
-    this.$store.commit('d2adminMenuHeaderSet', menuHeader)
+    this.$store.commit('d2adminMenuHeaderSet', menuHeader);
     // 设置侧边栏菜单
-    this.$store.commit('d2adminMenuAsideSet', menuAside)
+    this.$store.commit('d2adminMenuAsideSet', menuAside);
   },
   mounted () {
     // 获取并记录用户 UA
-    this.$store.commit('d2adminUaGet')
+    this.$store.commit('d2adminUaGet');
     // 展示系统信息
-    util.showInfo()
+    util.showInfo();
     // 用户登陆后从数据库加载一系列的设置
-    this.$store.commit('d2adminLoginSuccessLoad')
+    this.$store.commit('d2adminLoginSuccessLoad');
     // 初始化全屏监听
     this.fullscreenListenerInit()
   },
@@ -66,19 +66,19 @@ new Vue({
      * 处理路由 得到所有的页面
      */
     getAllPageFromRoutes () {
-      const pool = []
+      const pool = [];
       function push (routes) {
         routes.forEach((route) => {
           if (route.children) {
             push(route.children)
           } else {
-            const { meta, name, path } = route
+            const { meta, name, path } = route;
             pool.push({ meta, name, path })
           }
         })
       }
-      push(frameInRoutes)
+      push(frameInRoutes);
       this.$store.commit('d2adminPagePoolSet', pool)
     }
   }
-}).$mount('#app')
+}).$mount('#app');

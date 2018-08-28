@@ -27,27 +27,66 @@ import HeaderAside from './layouts/HeaderAside'
 // 下面两个页面就是对比 你可以分别观察两个页面上显示的路由数据差异
 
 const routerConfig = [
-  {
-    path: '/',
-    name: 'index',
-    layout: HeaderAside,
-    component: Index
-  },
-  {
-    path: '/demo1',
-    name: 'demo1', 
-    layout: HeaderAside,
-    component: Demo1,
-    meta: {
-      requiresAuth: true,
-      title: '演示 1'
-    }
-  },
-  {
-    path: '/demo2',
-    layout: HeaderAside,
-    component: Demo2
-  }
+    {
+        path: '/',
+        name: 'index',
+        layout: HeaderAside,
+        component: Index
+    },
+    {
+        path: '/pic/brief',
+        layout: HeaderAside,
+        component: Demo1,
+        meta: {
+            requiresAuth: true,
+            title: '运行概况'
+        }
+    },
+    {
+        path: '/current/problem',
+        layout: HeaderAside,
+        component: Demo1,
+        meta: {
+            requiresAuth: true,
+            title: '问题汇总'
+        }
+    },
+    {
+        path: '/current/arrangement',
+        layout: HeaderAside,
+        component: Demo1,
+        meta: {
+            requiresAuth: true,
+            title: '巡检安排'
+        }
+    },
+    {
+        path: '/info',
+        layout: HeaderAside,
+        component: Demo1,
+        meta: {
+            requiresAuth: true,
+            title: '项目信息'
+        }
+    },
+    {
+        path: '/management',
+        layout: HeaderAside,
+        component: Demo1,
+        meta: {
+            requiresAuth: true,
+            title: '系统管理'
+        }
+    },
+    {
+        path: '/statistics',
+        layout: HeaderAside,
+        component: Demo1,
+        meta: {
+            requiresAuth: true,
+            title: '统计分析'
+        }
+    },
 ];
 
 // 不参与菜单显示的
@@ -56,36 +95,36 @@ const routerConfig = [
 // 处理规则同 routerConfig
 
 const routerConfigMenuOut = [
-  {
-    path: '/login',
-    name: 'login',
-    component: Login,
-    meta: {
-      requiresAuth: false
+    {
+        path: '/login',
+        name: 'login',
+        component: Login,
+        meta: {
+            requiresAuth: false
+        }
+    },
+    {
+        path: '*',
+        component: Error404
     }
-  },
-  {
-    path: '*',
-    component: Error404
-  }
-]
+];
 
 // 导出全部路由设置
 // 这个数据会在 router.js 中被扁平处理
 
 export default UtilIce.recursiveRouterConfig([
-  ...routerConfig,
-  ...routerConfigMenuOut
+    ...routerConfig,
+    ...routerConfigMenuOut
 ])
 
 // 导出参与多标签页处理的路由设置
-// 这个数据会在 mian.js 中使用
+// 这个数据会在 main.js 中使用
 
 export const frameInRoutes = UtilIce.recursiveRouterConfig(routerConfig).map(e => {
-  const route = e.children ? e.children[0] : e
-  return {
-    path: e.path,
-    name: route.name,
-    meta: route.meta
-  }
-})
+    const route = e.children ? e.children[0] : e;
+    return {
+        path: e.path,
+        name: route.name,
+        meta: route.meta
+    }
+});

@@ -6,13 +6,13 @@ import util from '@/libs/util.js'
 // 路由数据
 import routes from '../routerConfig'
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 // 导出路由 在 main.js 里使用
 const router = new VueRouter({
   routes,
   mode: 'history'
-})
+});
 
 /**
  * 路由拦截
@@ -23,7 +23,7 @@ router.beforeEach((to, from, next) => {
   if (to.matched.some(r => r.meta.requiresAuth)) {
     // 这里暂时将cookie里是否存有token作为验证是否登陆的条件
     // 请根据自身业务需要修改
-    const token = util.cookies.get('token')
+    const token = util.cookies.get('token');
     if (token && token !== 'undefined') {
       next()
     } else {
@@ -40,12 +40,12 @@ router.beforeEach((to, from, next) => {
 
 router.afterEach((to) => {
   // 需要的信息
-  const { app } = router
-  const { name, params, query } = to
+  const { app } = router;
+  const { name, params, query } = to;
   // 多页控制 打开新的页面
-  app.$store.commit('d2adminPageOpenNew', { name, params, query })
+  app.$store.commit('d2adminPageOpenNew', { name, params, query });
   // 更改标题
   util.title(to.meta.title)
-})
+});
 
-export default router
+export default router;
